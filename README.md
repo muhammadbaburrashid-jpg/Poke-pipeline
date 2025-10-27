@@ -8,7 +8,7 @@ This project demonstrates practical data engineering concepts, e.g., API integra
 *	Loads data into a SQLite database (pokemon.db).
 *	Includes a Dockerfile for containerized execution.
 
-# Instructions to setup and run the solution
+# Instructions to set up and run the solution
 i: Install dependencies:
 pip install -r requirements.txt
 
@@ -25,14 +25,14 @@ iii. Run with Docker (optional)
 docker build -t poke-pipeline
 docker run -it poke-pipeline
 
-# Design Choices:
+# Design Choices
 Data Extraction
 *	Pokémon data is retrieved from https://pokeapi.co/api/v2.
 *	Each Pokémon’s detailed attributes (types, abilities, stats) are fetched from its specific URL.
 Data Transformation
 *	Nested JSON responses from the API are flattened and normalized for SQL storage.
 *	The transformation logic ensures that many-to-many relationships (like Pokémon types or abilities) are properly represented through join tables.
-# Database Schama Design:
+# Database Schema Design
 Table	Description
 * pokemon -->	Core Pokémon entity with general attributes
 * type -->	Master table of all Pokémon types
@@ -43,17 +43,17 @@ Table	Description
 * pokemon_stat -->	Mapping of Pokémon to their stats
 * evolution -->	Evaluation details
 
-# Data Loading:
+# Data Loading
 *	Uses SQLite for ease of setup and portability.
 *	Upsert logic prevents duplicate entries for reusable entities such as abilities and types.
 
-# Assumptions:
+# Assumptions
 *	Pokémon data from the API is consistent and valid JSON.
 *	The PokeAPI structure remains stable (no schema changes).
 *	SQLite is suitable for demo purposes; production would use PostgreSQL
 *	The solution is limited to the first 20 Pokémon for demonstration.
 
-# Potential Improvements:
+# Potential Improvements
 *	Implementing a GraphQL API – Expose Pokémon data for flexible querying.
 *	Adding Logging & Error Handling – Implement structured logging, retries, and graceful error recovery.
 *	Parallel Data Fetching – Use multithreading to speed up API calls.
