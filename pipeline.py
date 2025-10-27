@@ -154,7 +154,7 @@ def parse_evolution_chain(chain: Dict[str, Any]) -> List[Tuple[str, str, str]]:
     walk(chain["chain"])
     return edges
 
-# Mapping helper: get pokemon id by species name via API (or from DB)
+# Mapping helper: get pokemon id by species name via DB
 def species_name_to_pokemon_id(conn: sqlite3.Connection, species_name: str) -> Optional[int]:
     cur = conn.cursor()
     cur.execute("SELECT id FROM pokemon WHERE name = ?", (species_name,))
