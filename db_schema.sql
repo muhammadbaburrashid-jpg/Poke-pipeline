@@ -1,3 +1,4 @@
+--Table Creation script
 PRAGMA foreign_keys = ON;
 CREATE TABLE IF NOT EXISTS pokemon (id INTEGER PRIMARY KEY, name TEXT, height INTEGER, weight INTEGER, base_experience INTEGER, species_url TEXT);
 CREATE TABLE IF NOT EXISTS type (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT UNIQUE);
